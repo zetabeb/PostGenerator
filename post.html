@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style type="text/css">
+		body{
+			margin: auto;
+			padding: 0px;
+		}
+		table#postSpace{
+			background-color: #DADADB;
+			padding: 10px;
+		}
+		table#buttonPanel{
+			height: 40px;
+			margin: 0 auto;
+			text-align: center;
+			vertical-align: center;
+		}
+		table#buttonPanel button{
+			width: 30px;
+			height: 30px;
+		}
+		select#font{
+			width: 80px;
+			height: 30px;
+		}
+		select#size{
+			width: 40px;
+			height: 30px;
+		}
+		button#color{
+			padding-top: 0px; 
+			text-align: center;
+			color: black;
+			font-weight: 800;
+			text-decoration: underline 3px red;
+		}		
+		table#textSpace{
+			width: 100%;			
+		}
+		input#txtTitle{
+			width: 99%;
+			color: black;
+		}
+		textarea#txtArea{
+			width: 100%;
+			color: red;
+		}
+	</style>
+</head>
+<body>
+<form>
+<table id="postSpace">
+	<tr>
+		<td>				
+			<table id="buttonPanel">
+				<tr>
+					<td>
+						<select id="font">
+							<option value="verdana">Verdana</option>
+							<option value="comic">Comic Sans MS</option>
+							<option value="arial">Arial</option>		
+						</select>
+					</td>
+					<td>
+						<select id="size">
+							<option value="8">8</option>
+							<option value="9">9</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+							<option value="14">14</option>
+							<option value="16">16</option>
+							<option value="18">18</option>
+							<option value="20">20</option>
+						</select>
+					</td>
+					<td><button id="color">A</button></td>
+					<td><button id="bold"><b>B</b></button></td>
+					<td><button id="italics"><i>I</i></button></td>
+					<td><button id="underline"><u>U</u></button></td>
+				</tr>
+			</table>
+			<table id="textSpace">
+				<tr>
+					<td>
+						<input type="text" name="" id="txtTitle">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<textarea id="txtArea"></textarea>
+					</td>
+				</tr>
+			</table>				
+		</td>
+	</tr>
+</table>
+</form>
+<script type="text/javascript">
+	
+</script>
+</body>
+</html>
+
