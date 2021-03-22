@@ -33,24 +33,24 @@ btnBold.addEventListener('click', function () {
 	if(CheckCursorLocation()=='0') return;
 	if(CheckCursorLocation()=='title'){
 		if(isBoldTitle){
-			if(existeClase(btnBold, 'active'))	RemoveClass(btnBold, 'active');
+			RemoveClass(btnBold, 'active');
 			txtTitle.style.fontWeight = "normal";
 			isBoldTitle = false;
 		}
 		else{
-			if(!existeClase(btnBold, 'active'))	AddClass(btnBold, 'active');
+			AddClass(btnBold, 'active');
 			txtTitle.style.fontWeight = "bold";
 			isBoldTitle = true;
 		}
 	}
 	else if(CheckCursorLocation()=='bodyMessage'){
 		if(isBold){
-			if(existeClase(btnBold, 'active'))	RemoveClass(btnBold, 'active');
+			RemoveClass(btnBold, 'active');
 			txtArea.style.fontWeight = "normal";
 			isBold = false;
 		}
 		else{
-			if(!existeClase(btnBold, 'active'))	AddClass(btnBold, 'active');
+			AddClass(btnBold, 'active');
 			txtArea.style.fontWeight = "bold";
 			isBold = true;
 		}
@@ -60,26 +60,27 @@ btnBold.addEventListener('click', function () {
 //Text ITALICS
 btnItalics.addEventListener('click', function () {
 	if(CheckCursorLocation()=='0') return;
+
 	if(CheckCursorLocation()=='title'){
 		if(isItalicsTitle){
-			if(existeClase(btnItalics, 'active'))	RemoveClass(btnItalics, 'active');
+			RemoveClass(btnItalics, 'active');
 			txtTitle.style.fontStyle = "normal";
 			isItalicsTitle = false;
 		}
 		else{
-			if(!existeClase(btnItalics, 'active'))	AddClass(btnItalics, 'active');
+			AddClass(btnItalics, 'active');
 			txtTitle.style.fontStyle = "italic";
 			isItalicsTitle = true;
 		}
 	}
 	else if(CheckCursorLocation()=='bodyMessage'){
 		if(isItalics){
-			if(existeClase(btnItalics, 'active'))	RemoveClass(btnItalics, 'active');
+			RemoveClass(btnItalics, 'active');
 			txtArea.style.fontStyle = "normal";
 			isItalics = false;
 		}
 		else{
-			if(!existeClase(btnItalics, 'active'))	AddClass(btnItalics, 'active');
+			AddClass(btnItalics, 'active');
 			txtArea.style.fontStyle = "italic";
 			isItalics = true;
 		}
@@ -89,26 +90,27 @@ btnItalics.addEventListener('click', function () {
 //Text UNDERLINE
 btnUnderline.addEventListener('click', function () {
 	if(CheckCursorLocation()=='0') return;
+
 	if(CheckCursorLocation()=='title'){
 		if(isUnderlineTitle){
-			if(existeClase(btnUnderline, 'active'))	RemoveClass(btnUnderline, 'active');
-			txtTitle.style.textDecoration = "normal";
+			RemoveClass(btnUnderline, 'active');
+			txtTitle.style.textDecoration = "none";
 			isUnderlineTitle = false;
 		}
 		else{
-			if(!existeClase(btnUnderline, 'active')) AddClass(btnUnderline, 'active');
+			AddClass(btnUnderline, 'active');
 			txtTitle.style.textDecoration = "underline";
 			isUnderlineTitle = true;
 		}
 	}
 	else if(CheckCursorLocation()=='bodyMessage'){
 		if(isUnderline){
-			if(existeClase(btnUnderline, 'active'))	RemoveClass(btnUnderline, 'active');
-			txtArea.style.textDecoration = "normal";
+			RemoveClass(btnUnderline, 'active');
+			txtArea.style.textDecoration = "none";
 			isUnderline = false;
 		}
 		else{
-			if(!existeClase(btnUnderline, 'active')) AddClass(btnUnderline, 'active');
+			AddClass(btnUnderline, 'active');
 			txtArea.style.textDecoration = "underline";
 			isUnderline = true;
 		}
@@ -130,21 +132,21 @@ txtTitle.addEventListener('click', function() {
 	cursorTitle = 1;
 	//BOLD
 	if(isBoldTitle){
-		if(!existeClase(btnBold, 'active'))	AddClass(btnBold, 'active');
+		AddClass(btnBold, 'active');
 	}else{
-		if(existeClase(btnBold, 'active')) RemoveClass(btnBold, 'active');
+		RemoveClass(btnBold, 'active');
 	}
 	//ITALICS
 	if(isItalicsTitle){
-		if(!existeClase(btnItalics, 'active'))	AddClass(btnItalics, 'active');
+		AddClass(btnItalics, 'active');
 	}else{
-		if(existeClase(btnItalics, 'active')) RemoveClass(btnItalics, 'active');
+		RemoveClass(btnItalics, 'active');
 	}
 	//UNDERLINE
 	if(isUnderlineTitle){
-		if(!existeClase(btnUnderline, 'active'))	AddClass(btnUnderline, 'active');
+		AddClass(btnUnderline, 'active');
 	}else{
-		if(existeClase(btnUnderline, 'active')) RemoveClass(btnUnderline, 'active');
+		RemoveClass(btnUnderline, 'active');
 	}
 });
 txtArea.addEventListener('click', function() {
@@ -152,21 +154,21 @@ txtArea.addEventListener('click', function() {
 	cursorTitle = 0;
 	//BOLD
 	if(isBold){
-		if(!existeClase(btnBold, 'active'))	AddClass(btnBold, 'active');
+		AddClass(btnBold, 'active');
 	}else{
-		if(existeClase(btnBold, 'active')) RemoveClass(btnBold, 'active');
+		RemoveClass(btnBold, 'active');
 	}
 	//ITALICS
 	if(isItalics){
-		if(!existeClase(btnItalics, 'active'))	AddClass(btnItalics, 'active');
+		AddClass(btnItalics, 'active');
 	}else{
-		if(existeClase(btnItalics, 'active')) RemoveClass(btnItalics, 'active');
+		RemoveClass(btnItalics, 'active');
 	}
 	//UNDERLINE
 	if(isUnderline){
-		if(!existeClase(btnUnderline, 'active'))	AddClass(btnUnderline, 'active');
+		AddClass(btnUnderline, 'active');
 	}else{
-		if(existeClase(btnUnderline, 'active')) RemoveClass(btnUnderline, 'active');
+		RemoveClass(btnUnderline, 'active');
 	}
 });
 //---------To check where the cursor is----------//
@@ -199,10 +201,10 @@ function SetColor(cl){
 	}
 }
 function AddClass(obj, cls){
-	obj.className+=cls;
+	if(!existeClase(obj, cls))	obj.className+=cls;
 }
 function RemoveClass(obj, cls){
-	obj.className = obj.className.replace(cls, '');
+	if(existeClase(obj, cls))	obj.className = obj.className.replace(cls, '');
 }
 function existeClase(obj,cls) {
  	return obj.className.match(new RegExp('(\s|^)'+cls+'(\s|$)'));
