@@ -1,38 +1,121 @@
+//---------------Edit Panel Data---------------//
 const sizeSelect = document.getElementById('sizeSelect');
 const fontSelect = document.getElementById('fontSelect');
 const btnColor = document.getElementById('btnColor');
 const btnBold = document.getElementById('btnBold');
 const btnItalics = document.getElementById('btnItalics');
 const btnUnderline = document.getElementById('btnUnderline');
-
+//-------------------Form Data----------------//
 const txtArea = document.getElementById('txtArea');
 const txtTitle = document.getElementById('txtTitle');
-
+//--------------------Form Button---------------//
 const btnSend = document.getElementById('btnSend');
 const btnClean = document.getElementById('btnClean');
-
+//----------------Vars Cursor Location------------//
 let cursorTitle = 0;
 let cursorTexArea = 0;
+//---------Edit Button Booleans -- Title-------//
+let isBoldTitle = false;
+let isItalicsTitle = false;
+let isUnderlineTitle = false;
+//---------Edit Button Booleans -- Message Body-------//
 let isBold = false;
 let isItalics = false;
 let isUnderline = false;
-
+//----------------------Button Functions----------------------//
+//=======Edit Panel=======//
 btnColor.addEventListener('click', function () {
-	buttonFunction('btnColor');
+	MenuColor();
 	event.preventDefault();
 });
+//Text BOLD
 btnBold.addEventListener('click', function () {
-	buttonFunction('btnBold');
+	if(CheckCursorLocation()=='0') return;
+	if(CheckCursorLocation()=='title'){
+		if(isBoldTitle){
+			if(existeClase(btnBold, 'active'))	RemoveClass(btnBold, 'active');
+			txtTitle.style.fontWeight = "normal";
+			isBoldTitle = false;
+		}
+		else{
+			if(!existeClase(btnBold, 'active'))	AddClass(btnBold, 'active');
+			txtTitle.style.fontWeight = "bold";
+			isBoldTitle = true;
+		}
+	}
+	else if(CheckCursorLocation()=='bodyMessage'){
+		if(isBold){
+			if(existeClase(btnBold, 'active'))	RemoveClass(btnBold, 'active');
+			txtArea.style.fontWeight = "normal";
+			isBold = false;
+		}
+		else{
+			if(!existeClase(btnBold, 'active'))	AddClass(btnBold, 'active');
+			txtArea.style.fontWeight = "bold";
+			isBold = true;
+		}
+	}
 	event.preventDefault();
 });
+//Text ITALICS
 btnItalics.addEventListener('click', function () {
-	buttonFunction('btnItalics');
+	if(CheckCursorLocation()=='0') return;
+	if(CheckCursorLocation()=='title'){
+		if(isItalicsTitle){
+			if(existeClase(btnItalics, 'active'))	RemoveClass(btnItalics, 'active');
+			txtTitle.style.fontStyle = "normal";
+			isItalicsTitle = false;
+		}
+		else{
+			if(!existeClase(btnItalics, 'active'))	AddClass(btnItalics, 'active');
+			txtTitle.style.fontStyle = "italic";
+			isItalicsTitle = true;
+		}
+	}
+	else if(CheckCursorLocation()=='bodyMessage'){
+		if(isItalics){
+			if(existeClase(btnItalics, 'active'))	RemoveClass(btnItalics, 'active');
+			txtArea.style.fontStyle = "normal";
+			isItalics = false;
+		}
+		else{
+			if(!existeClase(btnItalics, 'active'))	AddClass(btnItalics, 'active');
+			txtArea.style.fontStyle = "italic";
+			isItalics = true;
+		}
+	}
 	event.preventDefault();
 });
+//Text UNDERLINE
 btnUnderline.addEventListener('click', function () {
-	buttonFunction('btnUnderline');
+	if(CheckCursorLocation()=='0') return;
+	if(CheckCursorLocation()=='title'){
+		if(isUnderlineTitle){
+			if(existeClase(btnUnderline, 'active'))	RemoveClass(btnUnderline, 'active');
+			txtTitle.style.textDecoration = "normal";
+			isUnderlineTitle = false;
+		}
+		else{
+			if(!existeClase(btnUnderline, 'active')) AddClass(btnUnderline, 'active');
+			txtTitle.style.textDecoration = "underline";
+			isUnderlineTitle = true;
+		}
+	}
+	else if(CheckCursorLocation()=='bodyMessage'){
+		if(isUnderline){
+			if(existeClase(btnUnderline, 'active'))	RemoveClass(btnUnderline, 'active');
+			txtArea.style.textDecoration = "normal";
+			isUnderline = false;
+		}
+		else{
+			if(!existeClase(btnUnderline, 'active')) AddClass(btnUnderline, 'active');
+			txtArea.style.textDecoration = "underline";
+			isUnderline = true;
+		}
+	}
 	event.preventDefault();
 });
+//=======Method Buttons=======//
 btnSend.addEventListener('click', function () {
 	event.preventDefault();
 });
@@ -41,115 +124,89 @@ btnClean.addEventListener('click', function () {
 	txtArea.value = "";
 	event.preventDefault();	
 });
+//------------------Cursor Location------------------//
 txtTitle.addEventListener('click', function() {
 	cursorTexArea = 0;
 	cursorTitle = 1;
+	//BOLD
+	if(isBoldTitle){
+		if(!existeClase(btnBold, 'active'))	AddClass(btnBold, 'active');
+	}else{
+		if(existeClase(btnBold, 'active')) RemoveClass(btnBold, 'active');
+	}
+	//ITALICS
+	if(isItalicsTitle){
+		if(!existeClase(btnItalics, 'active'))	AddClass(btnItalics, 'active');
+	}else{
+		if(existeClase(btnItalics, 'active')) RemoveClass(btnItalics, 'active');
+	}
+	//UNDERLINE
+	if(isUnderlineTitle){
+		if(!existeClase(btnUnderline, 'active'))	AddClass(btnUnderline, 'active');
+	}else{
+		if(existeClase(btnUnderline, 'active')) RemoveClass(btnUnderline, 'active');
+	}
 });
 txtArea.addEventListener('click', function() {
 	cursorTexArea = 1;
 	cursorTitle = 0;
+	//BOLD
+	if(isBold){
+		if(!existeClase(btnBold, 'active'))	AddClass(btnBold, 'active');
+	}else{
+		if(existeClase(btnBold, 'active')) RemoveClass(btnBold, 'active');
+	}
+	//ITALICS
+	if(isItalics){
+		if(!existeClase(btnItalics, 'active'))	AddClass(btnItalics, 'active');
+	}else{
+		if(existeClase(btnItalics, 'active')) RemoveClass(btnItalics, 'active');
+	}
+	//UNDERLINE
+	if(isUnderline){
+		if(!existeClase(btnUnderline, 'active'))	AddClass(btnUnderline, 'active');
+	}else{
+		if(existeClase(btnUnderline, 'active')) RemoveClass(btnUnderline, 'active');
+	}
 });
-function buttonFunction(button){
-	if(CheckCursorLocation()==0){
-		return;
-	}
-	else if(CheckCursorLocation()==1){
-		switch(button){
-			case 'btnColor':
-				MenuColor(1);
-			break;
-			case 'btnBold':
-				SetBold(1);
-			break;
-			case 'btnItalics':
-				SetItalics(1);
-			break;
-			case 'btnUnderline':
-				SetUnderline(1);
-			break;
-		}		
-	}
-	else if(CheckCursorLocation()==2){
-		switch(button){
-			case 'btnColor':
-				MenuColor(2);
-			break;
-			case 'btnBold':
-				SetBold(2);
-			break;
-			case 'btnItalics':
-				SetItalics(2);
-			break;
-			case 'btnUnderline':
-				SetUnderline(2);
-			break;
-		}
-	}
-}
+//---------To check where the cursor is----------//
 function CheckCursorLocation  (){
 	let cursorLocation;
-	if(cursorTitle == 1){
-		return cursorLocation = 1;	
+	if(cursorTitle == 1)
+	{	//The cursor is on the title
+		return cursorLocation = 'title';	
 	}
-	else if(cursorTexArea == 1){
-		return cursorLocation = 2;
-	}else{
-		return cursorLocation = 0;
+	else if(cursorTexArea == 1)
+	{	//The cursor is on the Message Body
+		return cursorLocation = 'bodyMessage';
+	}
+	else
+	{	//The cursor is nowhere
+		return cursorLocation = '0';
 	}
 }
+
 function MenuColor(cl){
 
 }
 function SetColor(cl){
-	if(cl==1){
-
+	if(CheckCursorLocation()=='0') return;
+	if(CheckCursorLocation()=='title'){
+		
 	}
-	else{
-
-	}
-}
-function SetBold(cl){
-
-	if(cl==1){
-		if(isBold){
-			alert("adiós mundo");
-			txtTitle.fontWeight = "normal";
-			isBold = false;
-		}
-		else{
-			alert("hola mundo");
-			txtTitle.fontWeight = "bold";
-			isBold = true;
-		}
-	}
-	else{
-		if(isBold){
-			txtArea.fontWeight = "normal";
-			isBold = false;
-		}
-		else{
-			txtArea.fontWeight = "bold";
-			isBold = true;
-		}
+	else if(CheckCursorLocation()=='bodyMessage'){
+		
 	}
 }
-function SetItalics(cl){
-	if(cl==1){
-
-	}
-	else{
-
-	}
+function AddClass(obj, cls){
+	obj.className+=cls;
 }
-function SetUnderline(cl){
-	if(cl==1){
-
-	}
-	else{
-
-	}
+function RemoveClass(obj, cls){
+	obj.className = obj.className.replace(cls, '');
 }
-
+function existeClase(obj,cls) {
+ 	return obj.className.match(new RegExp('(\s|^)'+cls+'(\s|$)'));
+}
 document.addEventListener('DOMContentLoaded', function (event) {
 	//alert("hola mundo");
 });

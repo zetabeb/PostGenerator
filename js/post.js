@@ -1,6 +1,6 @@
 const post = document.getElementById('post');
 
-post.innerHTML = IframeHTML("post.html", 100, 100);
+post.innerHTML = IframeHTML("/post/post.html", 100, 100);
 
 //Función que incluye Templates html
 function IframeHTML (text, width, height){
