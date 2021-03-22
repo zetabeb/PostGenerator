@@ -12,6 +12,7 @@
 		table#postSpace{
 			background-color: #DADADB;
 			padding: 10px;
+			height: auto;
 		}
 		table#buttonPanel{
 			height: 40px;
@@ -23,15 +24,15 @@
 			width: 30px;
 			height: 30px;
 		}
-		select#font{
+		select#fontSelect{
 			width: 80px;
 			height: 30px;
 		}
-		select#size{
+		select#sizeSelect{
 			width: 40px;
 			height: 30px;
 		}
-		button#color{
+		button#btnColor{
 			padding-top: 0px; 
 			text-align: center;
 			color: black;
@@ -49,6 +50,11 @@
 			width: 100%;
 			color: red;
 		}
+		table#actionSpace{
+			width: 100%;
+			align-content: center;
+			text-align: center;
+		}
 	</style>
 </head>
 <body>
@@ -59,14 +65,14 @@
 			<table id="buttonPanel">
 				<tr>
 					<td>
-						<select id="font">
+						<select id="fontSelect">
 							<option value="verdana">Verdana</option>
 							<option value="comic">Comic Sans MS</option>
 							<option value="arial">Arial</option>		
 						</select>
 					</td>
 					<td>
-						<select id="size">
+						<select id="sizeSelect">
 							<option value="8">8</option>
 							<option value="9">9</option>
 							<option value="10">10</option>
@@ -78,10 +84,10 @@
 							<option value="20">20</option>
 						</select>
 					</td>
-					<td><button id="color">A</button></td>
-					<td><button id="bold"><b>B</b></button></td>
-					<td><button id="italics"><i>I</i></button></td>
-					<td><button id="underline"><u>U</u></button></td>
+					<td><button id="btnColor">A</button></td>
+					<td><button id="btnBold"><b>B</b></button></td>
+					<td><button id="btnItalics"><i>I</i></button></td>
+					<td><button id="btnUnderline"><u>U</u></button></td>
 				</tr>
 			</table>
 			<table id="textSpace">
@@ -95,14 +101,20 @@
 						<textarea id="txtArea"></textarea>
 					</td>
 				</tr>
+			</table>
+			<table id="actionSpace">
+				<tr>
+					<td>
+						<button id="btnSend">Enviar</button>
+						<button id="btnClean">Limpiar</button>
+					</td>
+				</tr>
 			</table>				
 		</td>
 	</tr>
 </table>
 </form>
-<script type="text/javascript">
-	
-</script>
+<script type="text/javascript" src="js/sendPost.js"></script>
 </body>
 </html>
 
