@@ -1,4 +1,5 @@
 # PostGenerator
+
 [It is not finished]
 This is a template made in JavaScript that will be used to create posts and comments. Send the information through a Json.
 -----------------------------------------------------------------------------------------------------------------------
